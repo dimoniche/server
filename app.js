@@ -6,6 +6,11 @@
 // подключим сеть
 var net = require('net');
 
+// библиотеки для подключения к SQL
+var Connection = require('tedious').Connection;
+var Request    = require('tedious').Request;
+var TYPES      = require('tedious').TYPES;
+
 var CRC_ARC_TAB = new Array(
 
     0x0000,0xC0C1,0xC181,0x0140,0xC301,0x03C0,0x0280,0xC241,0xC601,0x06C0,0x0780,0xC741,0x0500,
@@ -426,6 +431,66 @@ function sendspd(func,port,modbus_func,device_type,archive_number)
     });
 };
 
+var config = {
+        server: '10.1.50.182',
+        userName: 'sa',
+        password: '123',
+        options: {
+            database: 'test_js_assv',
+            connectTimeout: 5000,
+            requestTimeout: 5000
+        }
+    };
+
+
+var connection = new Connection(config);
+
+connection.on('connect', function(err) {
+        // If no error, then good to go...
+        executeStatement();
+    }
+);
+
+connection.on('debug', function(text) {
+        console.log(text);
+    }
+);
+
+function executeStatement() {
+
+    request = new Request("INSERT INTO tsrv024(W1,W2,name) VALUES (0.001,0.002,'123');",
+
+        function(err, rowCount) {
+
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(rowCount + ' rows');
+        }
+
+        connection.close();
+    });
+
+    request.on('row', function(columns) {
+        columns.forEach(function(column) {
+            if (column.value === null) {
+                console.log('NULL');
+            } else {
+                console.log(column.value);
+            }
+        });
+    });
+
+    request.on('done', function(rowCount, more) {
+        console.log(rowCount + ' rows returned');
+    });
+
+    //request.addOutputParameter('id', TYPES.Int);
+
+    // In SQL Server 2000 you may need: connection.execSqlBatch(request);
+    connection.execSql(request);
+};
+
 // основное тело
 //sendspd(0x3a,3090);
-sendspd(0x28,3090,READ_ARCH,TSRV024);
+//sendspd(0x28,3090,READ_ARCH,TSRV024);
