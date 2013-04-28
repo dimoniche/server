@@ -5,6 +5,7 @@
 
 // подключим сеть
 var net = require('net');
+var fs = require('fs');
 
 // библиотеки для подключения к SQL
 var Connection = require('tedious').Connection;
@@ -86,6 +87,17 @@ var ETX = 0x03;
 var READ_ARCH = 0x41;
 var TSRV024   = 24;
 
+var config = {
+    server: 'SERVERLAND', //'10.1.50.182',
+    userName: 'SQLUser',
+    password: 'SQLUser',
+    options: {
+        database: 'test_js_assv',
+        connectTimeout: 5000,
+        requestTimeout: 5000
+    }
+};
+
 // заполнение задания на чтение архива
 function fill_task_read_archive(buf,datafrom,datato)
 {
@@ -107,7 +119,7 @@ function fill_task_read_archive(buf,datafrom,datato)
     buf[18] = datato[3];
 }
 
-// запрос на чтение архива
+// запрос на чтение архива по модбасу
 function read_modbus_archive_by_time(buf,archive,hour,day,mounth,year)
 {
     var tmp = new Buffer(15);
@@ -126,7 +138,7 @@ function read_modbus_archive_by_time(buf,archive,hour,day,mounth,year)
 
     tmp[7] = buf[17] = 0;           // секунды
     tmp[8] = buf[18] = 0;           // минуты
-    tmp[9] = buf[19] = hour;        // часы
+    tmp[9] = buf[19]  = hour;       // часы
     tmp[10] = buf[20] = day;        // день
     tmp[11] = buf[21] = mounth;     // месяц
     tmp[12] = buf[22] = year;       // год
@@ -144,8 +156,172 @@ function fill_modbus_request(buf)
 
 }
 
+// функция подготовки запроса чтения архивов у тсрв-024 по протоколу СПДанные
+function preparation_request_tsrv24_archive(parameters)
+{
+    var buf = new Buffer(23);
+
+    buf[0] = DLE;
+    buf[1] = SOH;
+    buf[2] = 0x00;
+    buf[3] = 0x00;
+    buf[4] = DLE;
+    buf[5] = IS1;
+    buf[6] = 0x3a;
+    buf[7] = DLE;
+    buf[8] = STX;
+
+    var datafrom = new Buffer(4);
+    var datato = new Buffer(4);
+
+    datafrom[0] = parameters.hour_from;
+    datafrom[1] = parameters.day_from;
+    datafrom[2] = parameters.mounth_from;
+    datafrom[3] = parameters.year_from;
+
+    datato[0] = parameters.hour_to;
+    datato[1] = parameters.day_to;
+    datato[2] = parameters.mounth_to;
+    datato[3] = parameters.year_to;
+
+    // задание на чтение архива
+    fill_task_read_archive(buf,datafrom,datato);
+
+    buf[19] = DLE;
+    buf[20] = ETX;
+
+    crcfunc(buf,21);
+
+    return buf;
+}
+
+// функция разбора ответа от 24го прибора архивы по протоколу СПДанные
+function parsing_response_tsrv24_archive(data,socket)
+{
+    var str = new Buffer(data.length);
+    var i = 0,j = 0;
+
+    // пропустим кадр СПДанных до начала данных ответа
+    while(!((data[i] == 0x10) && (data[i+1] == 0x02)))
+    {
+        i++;
+    }
+
+    {   // начало данных ответа
+        i+=2;
+
+        if((data[i] == 0x01) && (data[i+1] == 0x11))
+        {   // есть ответ версии
+            i+=2;j=0;
+            var len = data[i];
+            i++;
+
+            while(len--)
+            {
+                str[j++] = data[i++];
+            }
+
+            i+=2; //контрольную сумму пропустим
+
+            console.log('первый ответ', str.toString());
+        }
+
+        while((data[i] == 0x01) && (data[i+1] == 0x03))
+        {   // есть ответ чтения регистров
+            i+=2;j=0;
+            var len = data[i]; // количество регистров (байтов*2)
+            i++;
+
+            i+=2; //контрольную сумму пропустим
+
+            console.log('регистры читаем');
+        }
+
+        while((data[i] == 0x01) && (data[i+1] == 0x41))
+        {   // есть ответ архивов
+            i+=2;j=0;
+            var len = data[i];
+            i++;
+            while(len--)
+            {
+                str[j++] = data[i++];
+            }
+
+            i+=2; //контрольную сумму пропустим
+
+            console.log('архив получен');
+        }
+
+        if((data[i] == 0x09) && (data[i+1] == 0x0C))
+        {   // конец посылки - положительный ответ - закроем сокет
+            socket.end();
+        }
+    }
+}
+
+// функция занесения разобранного ответа в базу sql
+function saving_response_tsrv24_archive_sql()
+{
+
+}
+
+// посылка запроса прибору
+function send_request(ip_adress,            // IP адрес прибора
+                      port,                 // порт
+                      preparation_request,  // функция подготовки запроса
+                      parsing_response,     // функция обработки ответа
+                      saving_response,      // функция записи ответа
+                      parameters)           // параметры
+{
+    var socket = new net.Socket();
+
+    // соединяемся
+    socket.connect(port,ip_adress,
+
+        // функция по конекту
+        function (connection) {
+
+            console.log('Socket connected to port %s', port);
+
+            var device = new Object();
+            var buf    = preparation_request(parameters);
+
+            // пошлем посылку
+            socket.write(buf,function () {
+                console.log('write ok');
+            });
+
+            // ответ от прибора пришел - на разбор
+            socket.on('data',
+                function(data)
+                {
+                    parsing_response(data,socket,device,parameters);
+                });
+
+            // закрываем сокет
+            socket.on('end',function(){
+                console.log('socket end');
+
+                // вызовем функцию записи ответа
+                saving_response();
+            });
+
+            socket.on('close',function(){
+                console.log('socket close');
+            });
+
+            socket.on('timeout',function(){
+                console.log('socket timeout');
+            });
+
+            socket.on('error',function(){
+                console.log('socket error');
+            });
+        });
+}
 
 // функция
+//function sendspd(func,port,modbus_func,device_type,archive_number)
 function sendspd(func,port,modbus_func,device_type,archive_number)
 {
     var buf;
@@ -177,7 +353,10 @@ function sendspd(func,port,modbus_func,device_type,archive_number)
             {
                 if(typeof archive_number == 'undefined' ) var archive_number = 0;
 
-                len = read_modbus_archive_by_time(buf,archive_number,23,1,4,13);
+                // возьмем текущую дату
+                var now = new Date();
+
+                len = read_modbus_archive_by_time(buf,archive_number,now.getHours(),now.getDate(),now.getMonth()+1,now.getFullYear()-2000);
             }
             else if(modbus_func == 0x03)        // чтение регистра
             {
@@ -297,7 +476,7 @@ function sendspd(func,port,modbus_func,device_type,archive_number)
             var i = 0;
             var j = 0;
 
-            //console.log('1', data);
+            console.log('1', data);
 
             if(func == 0x28)
             {
@@ -415,6 +594,40 @@ function sendspd(func,port,modbus_func,device_type,archive_number)
 
         socket.on('end',function(){
             console.log('socket end');
+
+            // время предыдущего чтения
+            var last_read_time;
+
+            fs.readFile('time.txt', function (err, data) {
+                if (err) throw err;
+                console.log(data.toString());
+
+                last_read_time = new Date(Date.parse(data.toString()));
+
+                if(last_read_time < device.record_time)
+                {   // время предыдущего чтения меньше - значит есть новая архивная запись
+                    last_read_time = device.record_time;
+
+                    fs.writeFile('time.txt', device.record_time.toString(), function (err) {
+                        if (err) throw err;
+                        console.log('It\'s saved!');
+                    });
+
+                    // сокет закрыли данные есть - можно вносить в базу
+                    var connection = new Connection(config);
+
+                    connection.on('connect', function(err) {
+                            // If no error, then good to go...
+                            executeStatement(connection,device);
+                        }
+                    );
+
+                    connection.on('debug', function(text) {
+                            console.log(text);
+                        }
+                    );
+                };
+            });
         });
 
         socket.on('close',function(){
@@ -431,34 +644,15 @@ function sendspd(func,port,modbus_func,device_type,archive_number)
     });
 };
 
-var config = {
-        server: '10.1.50.182',
-        userName: 'sa',
-        password: '123',
-        options: {
-            database: 'test_js_assv',
-            connectTimeout: 5000,
-            requestTimeout: 5000
-        }
-    };
+function executeStatement(connection,device) {
 
+    var query = "INSERT INTO [dbo].[tsrv024] (name,time,W1,W2,M1,_m1,_m2,_m3,_m4,_v1,_v2,_v3,_v4) " +
+                "VALUES (@name, @time," +
+                "@W1,@W2,@M1," +
+                "@_m1,@_m2,@_m3,@_m4," +
+                "@_v1,@_v2,@_v3,@_v4);";
 
-var connection = new Connection(config);
-
-connection.on('connect', function(err) {
-        // If no error, then good to go...
-        executeStatement();
-    }
-);
-
-connection.on('debug', function(text) {
-        console.log(text);
-    }
-);
-
-function executeStatement() {
-
-    request = new Request("INSERT INTO tsrv024(W1,W2,name) VALUES (0.001,0.002,'123');",
+    request = new Request(query,
 
         function(err, rowCount) {
 
@@ -485,12 +679,56 @@ function executeStatement() {
         console.log(rowCount + ' rows returned');
     });
 
-    //request.addOutputParameter('id', TYPES.Int);
+    // поля в таблице SQL
+    {
+        request.addOutputParameter('name', TYPES.VarChar,device.name);
 
-    // In SQL Server 2000 you may need: connection.execSqlBatch(request);
+        request.addOutputParameter('time', TYPES.SmallDateTime,device.record_time);
+
+        request.addOutputParameter('W1', TYPES.Real,device.W1);
+        request.addOutputParameter('W2', TYPES.Real,device.W2);
+        request.addOutputParameter('M1', TYPES.Real,device.M1);
+
+        request.addOutputParameter('_m1', TYPES.Real,device.m1);
+        request.addOutputParameter('_m2', TYPES.Real,device.m2);
+        request.addOutputParameter('_m3', TYPES.Real,device.m3);
+        request.addOutputParameter('_m4', TYPES.Real,device.m4);
+
+        request.addOutputParameter('_v1', TYPES.Real,device.v1);
+        request.addOutputParameter('_v2', TYPES.Real,device.v2);
+        request.addOutputParameter('_v3', TYPES.Real,device.v3);
+        request.addOutputParameter('_v4', TYPES.Real,device.v4);
+    }
+
     connection.execSql(request);
 };
+
+send_request("91.190.93.137",3090,
+
+    preparation_request_tsrv24_archive,
+    parsing_response_tsrv24_archive,
+    saving_response_tsrv24_archive_sql,
+
+    {
+        hour_from:      0,
+        day_from:       1,
+        mounth_from:    4,
+        year_from:      13,
+
+        hour_to:        0,
+        day_to:         5,
+        mounth_to:      4,
+        year_to:        13
+    }
+);
+
+/*setInterval(function()
+    {
+        sendspd(0x28,3090,READ_ARCH,TSRV024);
+    }
+    ,60000);*/
 
 // основное тело
 //sendspd(0x3a,3090);
 //sendspd(0x28,3090,READ_ARCH,TSRV024);
+
