@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c0746da-b474-4479-a48c-ee65bf193312" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/dimoniche.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/dimoniche.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assv_emu.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
     </list>
@@ -27,29 +27,27 @@
       <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="287" column="0" selection-start="7807" selection-end="7807" vertical-scroll-proportion="1.9569768">
+            <state line="506" column="37" selection-start="13498" selection-end="13498" vertical-scroll-proportion="1.3225284">
               <folding>
                 <element signature="n#!!block;n#crcArcAdd#0" expanded="false" />
                 <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
                 <element signature="n#!!block;n#crcfunc#0" expanded="false" />
                 <element signature="e#3054#3264#0" expanded="false" />
-                <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
                 <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
                 <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
                 <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-                <element signature="e#5709#5729#0" expanded="false" />
-                <element signature="e#9199#10382#0" expanded="false" />
-                <element signature="e#10001#10017#0" expanded="false" />
-                <element signature="e#10071#10087#0" expanded="false" />
-                <element signature="e#10141#10157#0" expanded="false" />
-                <element signature="e#10451#11268#0" expanded="false" />
-                <element signature="e#11339#11742#0" expanded="false" />
-                <element signature="e#11810#12181#0" expanded="false" />
-                <element signature="e#12236#12248#0" expanded="false" />
-                <element signature="e#14348#16287#0" expanded="false" />
-                <element signature="e#16334#16438#0" expanded="false" />
-                <element signature="e#16485#16589#0" expanded="false" />
-                <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+                <element signature="e#5839#6186#0" expanded="false" />
+                <element signature="e#6252#6495#0" expanded="false" />
+                <element signature="e#9347#10530#0" expanded="false" />
+                <element signature="e#10149#10165#0" expanded="false" />
+                <element signature="e#10219#10235#0" expanded="false" />
+                <element signature="e#10289#10305#0" expanded="false" />
+                <element signature="e#10599#11416#0" expanded="false" />
+                <element signature="e#11487#11890#0" expanded="false" />
+                <element signature="e#11958#12329#0" expanded="false" />
+                <element signature="e#12384#12396#0" expanded="false" />
+                <element signature="e#16482#16586#0" expanded="false" />
+                <element signature="e#16633#16737#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -71,12 +69,13 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/assv_emu.js" />
         <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
+    <option name="x" value="1276" />
     <option name="y" value="-4" />
     <option name="width" value="1288" />
     <option name="height" value="1032" />
@@ -107,6 +106,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -127,18 +127,17 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="project.propVCSSupport.VCSs.Git" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RunManager" selected="Node.js.app.js">
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="$PROJECT_DIR$" coffeescript-run="false">
@@ -203,17 +202,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1288" height="1032" extended-state="6" />
+    <frame x="1276" y="-4" width="1288" height="1032" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1662689" sideWeight="0.7841808" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21581921" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1662689" sideWeight="0.72542375" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43728814" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20338982" sideWeight="0.4972156" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27457628" sideWeight="0.4972156" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27457628" sideWeight="0.4972156" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -275,39 +274,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="64" />
+      <option name="time" value="77" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="249" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!block;n#crcArcAdd#0" expanded="false" />
-            <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
-            <element signature="n#!!block;n#crcfunc#0" expanded="false" />
-            <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
-            <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
-            <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
-            <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="249" column="0" selection-start="6705" selection-end="6705" vertical-scroll-proportion="0.0">
@@ -316,23 +286,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -345,23 +313,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -374,23 +340,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -403,23 +367,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -432,23 +394,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -461,23 +421,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -490,23 +448,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -519,23 +475,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -548,23 +502,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -577,23 +529,21 @@
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -618,31 +568,34 @@
         <state line="456" column="0" selection-start="12789" selection-end="12789" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assv_emu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="161" selection-end="161" vertical-scroll-proportion="0.027552674" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="287" column="0" selection-start="7807" selection-end="7807" vertical-scroll-proportion="1.9569768">
+        <state line="506" column="37" selection-start="13498" selection-end="13498" vertical-scroll-proportion="1.3225284">
           <folding>
             <element signature="n#!!block;n#crcArcAdd#0" expanded="false" />
             <element signature="n#!!block;n#crcModbusHex#0" expanded="false" />
             <element signature="n#!!block;n#crcfunc#0" expanded="false" />
             <element signature="e#3054#3264#0" expanded="false" />
-            <element signature="n#!!block;n#fill_task_read_archive#0" expanded="false" />
             <element signature="n#!!block;n#read_modbus_archive_by_time#0" expanded="false" />
             <element signature="n#!!block;n#fill_modbus_request#0" expanded="false" />
             <element signature="n#!!block;n#preparation_request_tsrv24_archive#0" expanded="false" />
-            <element signature="e#5709#5729#0" expanded="false" />
-            <element signature="e#9199#10382#0" expanded="false" />
-            <element signature="e#10001#10017#0" expanded="false" />
-            <element signature="e#10071#10087#0" expanded="false" />
-            <element signature="e#10141#10157#0" expanded="false" />
-            <element signature="e#10451#11268#0" expanded="false" />
-            <element signature="e#11339#11742#0" expanded="false" />
-            <element signature="e#11810#12181#0" expanded="false" />
-            <element signature="e#12236#12248#0" expanded="false" />
-            <element signature="e#14348#16287#0" expanded="false" />
-            <element signature="e#16334#16438#0" expanded="false" />
-            <element signature="e#16485#16589#0" expanded="false" />
-            <element signature="n#!!block;n#executeStatement#0" expanded="false" />
+            <element signature="e#5839#6186#0" expanded="false" />
+            <element signature="e#6252#6495#0" expanded="false" />
+            <element signature="e#9347#10530#0" expanded="false" />
+            <element signature="e#10149#10165#0" expanded="false" />
+            <element signature="e#10219#10235#0" expanded="false" />
+            <element signature="e#10289#10305#0" expanded="false" />
+            <element signature="e#10599#11416#0" expanded="false" />
+            <element signature="e#11487#11890#0" expanded="false" />
+            <element signature="e#11958#12329#0" expanded="false" />
+            <element signature="e#12384#12396#0" expanded="false" />
+            <element signature="e#16482#16586#0" expanded="false" />
+            <element signature="e#16633#16737#0" expanded="false" />
           </folding>
         </state>
       </provider>

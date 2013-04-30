@@ -218,6 +218,8 @@ function parsing_response_tsrv24_archive(data,socket)
 
             while(len--)
             {
+                if(data[i] == DLE) {i++;};
+
                 str[j++] = data[i++];
             }
 
@@ -242,9 +244,12 @@ function parsing_response_tsrv24_archive(data,socket)
             i+=2;j=0;
             var len = data[i];
             i++;
-            while(len--)
+            while(len)
             {
+                if(data[i] == DLE) {i++;}
+
                 str[j++] = data[i++];
+                len--;
             }
 
             i+=2; //контрольную сумму пропустим
@@ -295,6 +300,8 @@ function send_request(ip_adress,            // IP адрес прибора
             socket.on('data',
                 function(data)
                 {
+                    console.log(data);
+
                     parsing_response(data,socket,device,parameters);
                 });
 
@@ -703,7 +710,7 @@ function executeStatement(connection,device) {
     connection.execSql(request);
 };
 
-send_request("91.190.93.137",3090,
+/*send_request("91.190.93.137",3090,
 
     preparation_request_tsrv24_archive,
     parsing_response_tsrv24_archive,
@@ -720,7 +727,28 @@ send_request("91.190.93.137",3090,
         mounth_to:      4,
         year_to:        13
     }
-);
+);*/
+
+sendspd(0x3e,3090);
+
+/*send_request("localhost",3000,
+
+    preparation_request_tsrv24_archive,
+    parsing_response_tsrv24_archive,
+    saving_response_tsrv24_archive_sql,
+
+    {
+        hour_from:      0,
+        day_from:       1,
+        mounth_from:    4,
+        year_from:      13,
+
+        hour_to:        0,
+        day_to:         5,
+        mounth_to:      4,
+        year_to:        13
+    }
+);*/
 
 /*setInterval(function()
     {
