@@ -293,6 +293,7 @@ function send_request(ip_adress,            // IP адрес прибора
 
             // пошлем посылку
             socket.write(buf,function () {
+                console.log(buf);
                 console.log('write ok');
             });
 
@@ -336,7 +337,7 @@ function sendspd(func,port,modbus_func,device_type,archive_number)
     var device = new Object();
 
     var socket = new net.Socket();
-    socket.connect(port,"91.190.93.137",function (connection) {
+    socket.connect(port,"10.1.50.211"/*"91.190.93.137"*/,function (connection) {
         console.log('Socket connected to port %s', port);
         // законектились - отправим что-то
 
@@ -710,7 +711,7 @@ function executeStatement(connection,device) {
     connection.execSql(request);
 };
 
-/*send_request("91.190.93.137",3090,
+send_request("91.190.93.137",3090,
 
     preparation_request_tsrv24_archive,
     parsing_response_tsrv24_archive,
@@ -727,9 +728,7 @@ function executeStatement(connection,device) {
         mounth_to:      4,
         year_to:        13
     }
-);*/
-
-sendspd(0x3e,3090);
+);
 
 /*send_request("localhost",3000,
 
@@ -758,5 +757,4 @@ sendspd(0x3e,3090);
 
 // основное тело
 //sendspd(0x3a,3090);
-//sendspd(0x28,3090,READ_ARCH,TSRV024);
 
